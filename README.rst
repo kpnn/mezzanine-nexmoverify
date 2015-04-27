@@ -9,7 +9,7 @@ Use Nexmo Verify in your Mezzanine websites.
 Features:
  * Enables you to verify your users phone number 
  * Password reset (users can use their phone number to log in and reset password).
- * Ability to restrict access to some actions/parts of your web site using @phone_required decorator in a similar fashion as @login_required is used (only users with verified phone number will have access, so it can stop people making fake accounts, stop spamming...).
+ * Ability to restrict access to some actions/parts of your web site using ``@phone_required`` decorator in a similar fashion as ``@login_required`` is used (only users with verified phone number will have access, so it can stop people making fake accounts, stop spamming...).
 
 
 Installation
