@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% block head %}
+  {{ wizard.form.media }}
+{% endblock %}
+{% block main %}
+  {% block nexmo_verify_title %}{% endblock %}<hr/>
+  <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+    {% if wizard.steps.step0 %}
+    <p>Your phone number is <strong>{{ user_phone }}</strong>. You should have received a text message or an automated phone call including your verification code, please enter it below:</p>
+  {% else %}
+    <p>Please enter your phone number in local or international format. We will use the number to send a validation code.</p>
+  {% endif %}
+  <form action="" method="post">{% csrf_token %}
+    {{ wizard.management_form }}
+    {% bootstrap_form wizard.form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      {% bootstrap_icon "ok" %} {% trans "OK" %}
+    </button>
+    {% endbuttons %}
+  </form>
+{% endblock %}

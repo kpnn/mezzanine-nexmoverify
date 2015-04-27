@@ -1,0 +1,29 @@
+{% load i18n future mezzanine_tags accounts_tags %}
+
+{% if request.user.is_authenticated %}
+    <p>
+    {% trans "Logged in as: " %}
+    {% url "profile" request.user.username as profile_url %}
+    {% if profile_url %}
+        <a href="{{ profile_url }}">{{ request.user|username_or:"email" }}</a>
+    </p>
+        <a href="{% url "profile_update" %}" class="btn btn-default btn-sm btn-account">
+            <span class="glyphicon glyphicon-edit"></span> {% trans "Update profile" %}</a>
+    {% else %}
+        <a href="{% url "profile_update" %}">{{ request.user|username_or:"email" }}</a>
+    </p>
+    {% endif %}
+    <a href="{% url "logout" %}?next=/" class="btn btn-sm btn-danger btn-account">
+        <span class="glyphicon glyphicon-log-out"></span> {% trans "Log out" %}</a>
+    <a href="{% url "add_phone" %}?next=/" class="btn btn-sm btn-account">
+        <span class="glyphicon glyphicon-phone"></span> {% trans "Add/Change Phone Number" %}</a>
+{% else %}
+    <a href="{% url "login" %}?next={{ request.path }}" class="btn btn-default btn-sm btn-account">
+        <span class="glyphicon glyphicon-log-in"></span> {% trans "Log in" %}</a>
+    &nbsp;{% trans "or" %}&nbsp;
+    <a href="{% url "signup" %}?next=/" class="btn btn-default btn-sm btn-account">
+        <span class="glyphicon glyphicon-edit"></span> {% trans "Sign up" %}</a>
+        <p>{% trans "Lost Password?" %}
+        <a class="btn btn-default btn-sm" href="{% url "password_reset_phone" %}">
+        <span class="glyphicon glyphicon-refresh"></span> {% trans "Reset your password" %}</a><br> Powered by <a href="http://www.nexmo.com/">NEXMO Verify</a></p>
+{% endif %}
