@@ -7,10 +7,9 @@ Welcome to mezzanine-nexmoverify
 Use Nexmo Verify in your Mezzanine websites.
 
 Features:
-- Enables you to verify your users phone number 
-- Password reset (users can use their phone number to log in and reset password).
-- Ability to restrict access to some actions/parts of your web site using @phone_required decorator
- in a similar fashion as @login_required is used (only users with verified phone number will have access, so it can stop people making fake accounts, stop spamming...).
+ * Enables you to verify your users phone number 
+ * Password reset (users can use their phone number to log in and reset password).
+ * Ability to restrict access to some actions/parts of your web site using @phone_required decorator in a similar fashion as @login_required is used (only users with verified phone number will have access, so it can stop people making fake accounts, stop spamming...).
 
 
 Installation
@@ -23,17 +22,18 @@ Installation
     ``$ pip install mezzanine``
 
 3. Create mezzanine project or use in your existing mezzanine project:
-    ``
-    $ mezzanine-project mezzanine_project_name
-    ``
+    
+    ``$ mezzanine-project mezzanine_project_name``
 
 4. Add to INSTALLED_APPS in your ``<mezzanine_project_name>/settings.py``:
 
-   ``'bootstrap3', 
-     'mezzanine.accounts',
-     'django.contrib.formtools',
-     'nexmoverify',
-   ``
+   ``'bootstrap3',``
+   
+   ``'mezzanine.accounts',``
+   
+   ``'django.contrib.formtools',``
+   
+   ``'nexmoverify',`` 
 
 5.  Add to urlpatterns in your ``<mezzanine_project_name>/urls.py``:
 
@@ -48,20 +48,18 @@ Installation
    ``<mezzanine_project_name>/templates/accounts/includes/user_panel.html``
 
 7. Run:
- 
-    ``
-    $ cd mezzanine_project_name
-    $ python manage.py createdb --noinput
-    $ python manage.py runserver
-    ``
 
-    You should be able to browse to http://127.0.0.1:8000/admin/ and log in using the default account (username: admin, password: default)
+    ``$ cd mezzanine_project_name``
+    
+    ``$ python manage.py createdb --noinput``
+    
+    ``$ python manage.py runserver``
+
+You should be able to browse to http://127.0.0.1:8000/admin/ and log in using the default account (username: admin, password: default)
 
 8. Go to Admin Settings and add your:
     
-    Nexmo API KEY
-    Nexmo API SECRET
-    Nexmo Brand
+    ``Nexmo API KEY``, ``Nexmo API SECRET`` and ``Nexmo Brand``
     
 
 
@@ -69,8 +67,8 @@ Examples
 ----------------
 
     Using the @phone_required decorator
-
-   .. code:: Python
+    
+  .. code:: Python
 
     from django.http import HttpResponse
     from nexmoverify.decorators import phone_requred
@@ -80,10 +78,10 @@ Examples
         return HttpResponse('Wow you verified your phone number!')
 
  
-    Visit http://127.0.0.1:8000/test/secret to see it in action.
-
-
-
+ 
+ Visit http://127.0.0.1:8000/test/secret to see it in action.
+ 
+    .. code:: Python
 
     Using Nexmo Verify API Directly
 
