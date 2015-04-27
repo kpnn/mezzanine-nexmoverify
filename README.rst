@@ -27,13 +27,15 @@ Installation
 
 4. Add to INSTALLED_APPS in your ``<mezzanine_project_name>/settings.py``:
 
-   ``'bootstrap3',``
-   
-   ``'mezzanine.accounts',``
-   
-   ``'django.contrib.formtools',``
-   
-   ``'nexmoverify',`` 
+  .. code:: Python
+  
+    INSTALLED_APPS = (
+        ...
+        'bootstrap3',
+        'mezzanine.accounts',
+        'django.contrib.formtools',
+        'nexmoverify',
+    )
 
 5.  Add to urlpatterns in your ``<mezzanine_project_name>/urls.py``:
 
@@ -42,9 +44,11 @@ Installation
 6. Copy ``templates`` folder (it only contains one file: 'user_panel.html') into your mezzanine_project_name folder:
 
    So your mezzanine_project_name folder should contain:
+   
    ``/templates/accounts/includes/user_panel.html``
    
    Full path should be:
+   
    ``<mezzanine_project_name>/templates/accounts/includes/user_panel.html``
 
 7. Run:
@@ -66,7 +70,7 @@ You should be able to browse to http://127.0.0.1:8000/admin/ and log in using th
 Examples
 ----------------
 
-    Using the @phone_required decorator
+  Using the @phone_required decorator
     
   .. code:: Python
 
